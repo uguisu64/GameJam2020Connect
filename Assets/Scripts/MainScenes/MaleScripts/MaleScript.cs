@@ -21,16 +21,16 @@ public class MaleScript : MonoBehaviour
     public void HitOthers()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position += new Vector3(speed, 0.64f), Vector3.back, 10);
+        RaycastHit2D hit2 = Physics2D.Raycast(transform.position += new Vector3(speed, 0.64f), Vector3.back, 10);
 
-        if (hit.collider)
+        if (hit.collider || hit2.collider)
         {
-            if (hit.collider.tag == "Imortal"||hit.collider.tag=="Block")
+            if (hit.collider.tag == "Imortal" || hit.collider.tag == "Block"|| hit2.collider.tag == "Imortal" || hit2.collider.tag == "Block")
             {
                 MaleReverse();
                 return;
             }
         }
-
         MaleJump();
     }
 
